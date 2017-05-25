@@ -19,16 +19,13 @@
     [super viewDidLoad];
     
     // currentVersion
-    NSString *currentVersion = [ZJWVersion currentVersion];
-    NSLog(@"当前版本:%@", currentVersion);
+    NSLog(@"当前版本%@", [ZJWVersion currentVersion]);
     
-    // versionDidChange
-    BOOL change = [ZJWVersion versionDidChange];
-    
-    if (change) {
-        NSLog(@"版本已更改");
+    // versionDidUpdate
+    if ([ZJWVersion versionDidUpdate]) {
+        NSLog(@"版本已更新");
     } else {
-        NSLog(@"版本未更改");
+        NSLog(@"版本未更新");
     }
 }
 
