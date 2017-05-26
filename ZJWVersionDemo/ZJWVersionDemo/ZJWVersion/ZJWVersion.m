@@ -22,13 +22,13 @@ static NSString * const ZJWVersionKey = @"ZJWVersionKey";
     return [[NSUserDefaults standardUserDefaults] objectForKey:ZJWVersionKey];
 }
 
-/** 判断版本号更新 */
+/** 判断版本号是否更新 */
 + (BOOL)isVersionUpdate {
     NSString *version = [self version];
     NSString *lastVersion = [self lastVersion];
     
     if ([version compare:lastVersion] == NSOrderedDescending) {
-        // 如果版本号更新，存储版本号
+        // 如果版本号已更新，存储版本号
         [[NSUserDefaults standardUserDefaults] setObject:version forKey:ZJWVersionKey];
         [[NSUserDefaults standardUserDefaults] synchronize];
         

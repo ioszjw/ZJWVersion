@@ -13,7 +13,7 @@
 /** 版本号 */
 + (NSString *)version;
 
-/** 判断版本号更新 */
+/** 判断版本号是否更新 */
 + (BOOL)isVersionUpdate;
 
 @end
