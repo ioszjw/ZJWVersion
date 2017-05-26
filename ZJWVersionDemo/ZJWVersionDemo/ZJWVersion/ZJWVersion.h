@@ -10,10 +10,10 @@
 
 @interface ZJWVersion : NSObject
 
-/** 当前版本 */
-+ (NSString *)currentVersion;
+/** 版本号 */
++ (NSString *)version;
 
-/** 版本是否已更新 */
-+ (BOOL)versionDidUpdate;
+/** 判断版本号更新 */
++ (BOOL)isVersionUpdate;
 
 @end

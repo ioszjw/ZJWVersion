@@ -10,29 +10,31 @@
 
 @implementation ZJWVersion
 
-static NSString * const ZJWVersionCurrentVersionKey = @"ZJWVersionCurrentVersionKey";
+static NSString * const ZJWVersionKey = @"ZJWVersionKey";
 
-/** 当前版本 */
-+ (NSString *)currentVersion {
+/** 版本号 */
++ (NSString *)version {
     return [NSBundle mainBundle].infoDictionary[@"CFBundleShortVersionString"];
 }
 
-/** 上一次版本 */
+/** 上一次版本号 */
 + (NSString *)lastVersion {
-    return [[NSUserDefaults standardUserDefaults] objectForKey:ZJWVersionCurrentVersionKey];
+    return [[NSUserDefaults standardUserDefaults] objectForKey:ZJWVersionKey];
 }
 
-/** 版本是否已更新 */
-+ (BOOL)versionDidUpdate {
-    NSString *currentVersion = [self currentVersion];
+/** 判断版本号更新 */
++ (BOOL)isVersionUpdate {
+    NSString *version = [self version];
     NSString *lastVersion = [self lastVersion];
     
-    if ([currentVersion compare:lastVersion] == NSOrderedDescending) {
-        [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:ZJWVersionCurrentVersionKey];
+    if ([version compare:lastVersion] == NSOrderedDescending) {
+        // 如果版本号更新，存储版本号
+        [[NSUserDefaults standardUserDefaults] setObject:version forKey:ZJWVersionKey];
         [[NSUserDefaults standardUserDefaults] synchronize];
         
         return YES;
-    } else {
+    }
+    else {
         return NO;
     }
 }

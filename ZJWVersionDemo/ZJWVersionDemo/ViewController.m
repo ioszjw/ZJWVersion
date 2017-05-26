@@ -18,14 +18,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // currentVersion
-    NSLog(@"当前版本%@", [ZJWVersion currentVersion]);
+    // version
+    NSLog(@"版本号:%@", [ZJWVersion version]);
     
-    // versionDidUpdate
-    if ([ZJWVersion versionDidUpdate]) {
-        NSLog(@"版本已更新");
+    // isVersionUpdate
+    if ([ZJWVersion isVersionUpdate]) {
+        NSLog(@"版本号更新");
     } else {
-        NSLog(@"版本未更新");
+        NSLog(@"版本号未更新");
     }
 }
 
